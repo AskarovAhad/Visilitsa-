@@ -1,4 +1,4 @@
-//библиотеки
+//ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdlib.h>
@@ -9,20 +9,20 @@
 #include <map>
 #include <unordered_map>
 #include <filesystem>
-//пространства имен
+//ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГ  ГЁГ¬ГҐГ­
 using namespace std;
 namespace fs = filesystem;
 
-//глобальные переменные
-string DISK = "d:\\visilitsa"; //Путь к папке висилицва
-string LOGIN;	//для записи результатов игры
-string USERS = "d:\\visilitsa\\USERS\\log.txt";		//путь для хранения и считывания логина и паролей
-string PLAYER = "d:\\visilitsa\\PLAYER\\";			//путь для хранения результатов игры
-string SYMBOLS;										//для хранения и записи введенных символов во время игры
-bool* Status;//статус угаданных букв   line - слово
+//ГЈГ«Г®ГЎГ Г«ГјГ­Г»ГҐ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ
+string DISK = "d:\\visilitsa"; //ГЏГіГІГј ГЄ ГЇГ ГЇГЄГҐ ГўГЁГ±ГЁГ«ГЁГ¶ГўГ 
+string LOGIN;	//Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў ГЁГЈГ°Г»
+string USERS = "d:\\visilitsa\\USERS\\log.txt";		//ГЇГіГІГј Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЁ Г±Г·ГЁГІГ»ГўГ Г­ГЁГї Г«Г®ГЈГЁГ­Г  ГЁ ГЇГ Г°Г®Г«ГҐГ©
+string PLAYER = "d:\\visilitsa\\PLAYER\\";			//ГЇГіГІГј Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў ГЁГЈГ°Г»
+string SYMBOLS;										//Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЁ Г§Г ГЇГЁГ±ГЁ ГўГўГҐГ¤ГҐГ­Г­Г»Гµ Г±ГЁГ¬ГўГ®Г«Г®Гў ГўГ® ГўГ°ГҐГ¬Гї ГЁГЈГ°Г»
+bool* Status;//Г±ГІГ ГІГіГ± ГіГЈГ Г¤Г Г­Г­Г»Гµ ГЎГіГЄГў   line - Г±Г«Г®ГўГ®
 
 
-//класс
+//ГЄГ«Г Г±Г±
 class Visilica {
 public:
 	void setWord(string new_word) { word = new_word; }
@@ -91,7 +91,7 @@ int main() {
 	}
 	return 0;
 }
-//регистрация нового пользователя
+//Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї Г­Г®ГўГ®ГЈГ® ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї
 void Registration() {
 	ofstream to_login(USERS, ios::app);
 	string login;
@@ -105,7 +105,7 @@ void Registration() {
 	to_login.close();
 	//path += ".txt";
 }
-//вывод угаданных букв 
+//ГўГ»ГўГ®Г¤ ГіГЈГ Г¤Г Г­Г­Г»Гµ ГЎГіГЄГў 
 void Print(Visilica& game) {
 	for (int i = 0; i < game.getWord().size(); i++) {
 		if (Status[i] == true) { cout << game.getWord()[i]; }
@@ -113,15 +113,15 @@ void Print(Visilica& game) {
 	}
 	cout << endl;
 }
-//функция по умолчанию для слов и BOOL массива
+//ГґГіГ­ГЄГ¶ГЁГї ГЇГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ Г¤Г«Гї Г±Г«Г®Гў ГЁ BOOL Г¬Г Г±Г±ГЁГўГ 
 void Visilica::FillDefault() {
 	int r_num = rand() % word.size() - 1;
 	Status = new bool[word.size()];
-	hp = word.size() + 8; //значения хп = количество букв в слове + 8
-	for (int i = 0; i < word.size(); i++) {//присваиваем по умолчанию false
+	hp = word.size() + 8; //Г§Г­Г Г·ГҐГ­ГЁГї ГµГЇ = ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЎГіГЄГў Гў Г±Г«Г®ГўГҐ + 8
+	for (int i = 0; i < word.size(); i++) {//ГЇГ°ГЁГ±ГўГ ГЁГўГ ГҐГ¬ ГЇГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ false
 		Status[i] = false;
 	}
-	for (int i = 0; i < 2;) {//для начала игры определяем 2 рандомные буквы на показ игроку 
+	for (int i = 0; i < 2;) {//Г¤Г«Гї Г­Г Г·Г Г«Г  ГЁГЈГ°Г» Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ 2 Г°Г Г­Г¤Г®Г¬Г­Г»ГҐ ГЎГіГЄГўГ» Г­Г  ГЇГ®ГЄГ Г§ ГЁГЈГ°Г®ГЄГі 
 		r_num = rand() % word.size() - 1;
 		if (Status[r_num] == false) {
 			Status[r_num] = true;
@@ -129,7 +129,7 @@ void Visilica::FillDefault() {
 		}
 	}
 }
-//Функция проверки введенного символа
+//Г”ГіГ­ГЄГ¶ГЁГї ГЇГ°Г®ГўГҐГ°ГЄГЁ ГўГўГҐГ¤ГҐГ­Г­Г®ГЈГ® Г±ГЁГ¬ГўГ®Г«Г 
 bool CheckSymbol(Visilica& game, char symbol) {
 	for (int i = 0; i < game.getWord().size(); i++) {
 		if (symbol == game.getWord()[i]) {
@@ -152,7 +152,7 @@ bool CheckSymbol(Visilica& game, char symbol) {
 		}
 	}
 }
-//функция проверки победы
+//ГґГіГ­ГЄГ¶ГЁГї ГЇГ°Г®ГўГҐГ°ГЄГЁ ГЇГ®ГЎГҐГ¤Г»
 bool CheckWin(Visilica& game) {
 	int count = 0;
 	for (int i = 0; i < game.getWord().size(); i++) {
@@ -163,10 +163,10 @@ bool CheckWin(Visilica& game) {
 	if (count == game.getWord().size()) { return false; }
 	else { return true; }
 }
-//сама игра
+//Г±Г Г¬Г  ГЁГЈГ°Г 
 void Game(Visilica& game) {
 	char symbol;
-	int start = clock();// засекаем время старта
+	int start = clock();// Г§Г Г±ГҐГЄГ ГҐГ¬ ГўГ°ГҐГ¬Гї Г±ГІГ Г°ГІГ 
 	ReadFromFile(game);
 	cout << "Game starts!\n";
 	game.FillDefault();
@@ -195,7 +195,7 @@ void ReadToMap(unordered_map<string, string>& a, ifstream& tests) {
 	}
 	tests.close();
 }
-//система логина
+//Г±ГЁГ±ГІГҐГ¬Г  Г«Г®ГЈГЁГ­Г 
 bool Login(ifstream& logs) {
 	system("cls");
 	string log; string pas;
@@ -213,7 +213,7 @@ bool Login(ifstream& logs) {
 	logs.close();
 	return false;
 }
-//меню
+//Г¬ГҐГ­Гѕ
 void MainMenu() {
 	cout << "1 - sign in \n";
 	cout << "2 - Sign up\n";
@@ -224,7 +224,7 @@ void AfterGameMenu() {
 	cout << "\n4 - Play one more time\n";
 	cout << "0 - exit\n";
 }
-//Функция для сохранения игровой информации в файл
+//Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГЁГЈГ°Г®ГўГ®Г© ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Гў ГґГ Г©Г«
 void SaveInfoToFile(Visilica& game) {
 	string path = PLAYER + LOGIN + "info.txt";
 	ofstream put(path, ios::app);
@@ -242,7 +242,7 @@ void SaveInfoToFile(Visilica& game) {
 	}
 	put.close();
 }
-//функция вывода результатов игры
+//ГґГіГ­ГЄГ¶ГЁГї ГўГ»ГўГ®Г¤Г  Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў ГЁГЈГ°Г»
 void EndGameMenu(Visilica& game) {
 	if (!CheckWin(game)) {
 		system("cls");
@@ -258,18 +258,18 @@ void EndGameMenu(Visilica& game) {
 	}
 }
 
-//функция рандомного выбора и расшифровывания слова
+//ГґГіГ­ГЄГ¶ГЁГї Г°Г Г­Г¤Г®Г¬Г­Г®ГЈГ® ГўГ»ГЎГ®Г°Г  ГЁ Г°Г Г±ГёГЁГґГ°Г®ГўГ»ГўГ Г­ГЁГї Г±Г«Г®ГўГ 
 void ReadFromFile(Visilica& game) {
 	string s; int index = 0;
-	vector <string> cword;			//считываетм слово и потоком записываем в вектор
+	vector <string> cword;			//Г±Г·ГЁГІГ»ГўГ ГҐГІГ¬ Г±Г«Г®ГўГ® ГЁ ГЇГ®ГІГ®ГЄГ®Г¬ Г§Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Гў ГўГҐГЄГІГ®Г°
 	ifstream stream("d:\\file.txt");
 	while (getline(stream, s)) {
 		cword.push_back(s);
 		stream.ignore(1);
 	}
-	int num = rand() % cword.size();	//тут рандомно определяем слово
+	int num = rand() % cword.size();	//ГІГіГІ Г°Г Г­Г¤Г®Г¬Г­Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г±Г«Г®ГўГ®
 	s = cword[num];
-	for (int i = 0; i < s.size(); i++) {		//тут слово расшифровывается
+	for (int i = 0; i < s.size(); i++) {		//ГІГіГІ Г±Г«Г®ГўГ® Г°Г Г±ГёГЁГґГ°Г®ГўГ»ГўГ ГҐГІГ±
 		index = s[i];
 		index = index - 1;
 		s[i] = char(index);
